@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhotoBooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero / Home Page -->
+  <section id="home" class="page active">
+    <div class="center-box hero">
+      <h1 class="hero-title">PhotoBooth</h1>
+      <img src="C:\Users\ankur\OneDrive\Desktop\3rd year project\photobooth project\image-removebg-preview.png" alt="Hero Image" class="hero-img">
+      <button onclick="showPage('signup')">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Signup Page -->
+  <section id="signup" class="page">
+    <center>
+        <div class="form-box">
+      <h1>Sign Up</h1>
+      <br>
+      <input type="text" id="signup-username" placeholder="Username">
+       <br>
+      <input type="password" id="signup-password" placeholder="Password">
+       <br>
+      <button onclick="signup()">Sign Up</button>
+       <br>
+      <p>Already have an account? <a href="#" onclick="showPage('login')">Login</a></p>
+       <br>
+    </div>
+    </center>
+    
+  </section>
+
+  <!-- Login Page -->
+  <section id="login" class="page">
+    <div class="form-box">
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username">
+      <input type="password" id="login-password" placeholder="Password">
+      <br>
+      <button onclick="login()">Login</button>
+    </div>
+  </section>
+
+  <!-- Gallery Page -->
+  <section id="gallery" class="page">
+    <div class="top-bar">
+      <h2>Gallery</h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Upload -->
+    <div class="upload-box" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+      <p>Drag & Drop photo here or click below</p>
+      <input type="file" id="fileInput" accept="image/*">
+      <button onclick="previewUpload()">Upload</button>
+    </div>
+
+    <!-- Preview Popup -->
+    <div id="previewPopup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Confirm Upload</h3>
+        <img id="previewImage" src="" alt="Preview">
+        <div class="popup-actions">
+          <button onclick="confirmUpload()">Confirm</button>
+          <button onclick="cancelUpload()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Items -->
+    <div class="gallery grid-view" id="galleryContainer"></div>
+  </section>
+
+  <!-- View Image Popup -->
+  <div id="viewPopup" class="popup hidden">
+    <div class="popup-content">
+      <img id="viewImage" src="" alt="Full View">
+      <button onclick="closeView()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
